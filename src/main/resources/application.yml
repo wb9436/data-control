@@ -25,3 +25,7 @@ mybatis:
   mapper-locations: classpath:mapper/*/*.xml
   configuration:
       map-underscore-to-camel-case: true
+logging:
+  level:
+    root: error
+    com.wubing.datacontrol: debug
