@@ -1,0 +1,27 @@
+project-url: http://localhost:8088/user/get?userId=100000
+server:
+  port: 8088
+spring:
+  datasource:
+    type: com.mchange.v2.c3p0.ComboPooledDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    #useAffectedRows=true 配置这个后返回的是数据受影响的条数, 未配置显示的是匹配的要修改的数据条数
+    url: jdbc:mysql://127.0.0.1:3306/data_control?autoReconnect=true&useUnicode=true&characterEncoding=UTF8&useSSL=false&useAffectedRows=true
+    username: root
+    password: root
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    host: 192.168.1.254
+    port: 6379
+    timeout: 10000
+    pool:
+      max-active: 40
+      max-idle: 5
+      max-wait: 10000
+    password:
+mybatis:
+  mapper-locations: classpath:mapper/*/*.xml
+  configuration:
+      map-underscore-to-camel-case: true

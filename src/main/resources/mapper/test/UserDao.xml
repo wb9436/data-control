@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wubing.datacontrol.test.dao.UserDao">
+
+    <insert id="insertUserDao" parameterType="com.wubing.datacontrol.test.dto.UserDto" useGeneratedKeys="true"
+            keyProperty="userId">
+		<![CDATA[
+			INSERT INTO test_user (
+				`nickname`,
+				`balance`,
+				createTime,
+				updateTime
+			) VALUES (
+				#{nickname},
+				#{balance},
+				#{createTime},
+				#{updateTime}
+			)
+        ]]>
+	</insert>
+
+	<select id="getUserDto" resultType="com.wubing.datacontrol.test.dto.UserDto">
+		<![CDATA[
+			SELECT
+				a.userId,
+				a.nickname,
+				a.balance,
+				a.createTime,
+				a.updateTime
+			FROM
+				test_user AS a
+			WHERE
+				a.userId = #{userId}
+		]]>
+	</select>
+
+	<update id="updateUserDto" parameterType="com.wubing.datacontrol.test.dto.UserDto">
+		<![CDATA[
+			UPDATE test_user
+			SET
+				nickname = #{nickname},
+				balance = #{balance},
+				updateTime = #{updateTime}
+			WHERE
+				userId = #{userId}
+		]]>
+	</update>
+
+</mapper>
