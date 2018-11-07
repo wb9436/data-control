@@ -1,4 +1,4 @@
-project-url: http://localhost:8088/user/get?userId=100000
+project-url: http://192.168.1.166:8088/user/get?userId=100000
 server:
   port: 8088
 logging:
